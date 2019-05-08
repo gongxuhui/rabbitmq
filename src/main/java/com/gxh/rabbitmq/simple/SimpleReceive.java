@@ -18,7 +18,7 @@ public class SimpleReceive {
         Connection connection = ConnectionUtil.getConnection();
         Channel channel = connection.createChannel();
         //定义队列的消费者
-        DefaultConsumer defaultConsumer = new DefaultConsumer(channel);
+        //DefaultConsumer defaultConsumer = new DefaultConsumer(channel);
 
 
 
