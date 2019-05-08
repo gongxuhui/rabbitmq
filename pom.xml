@@ -17,11 +17,18 @@
     <properties>
         <java.version>1.8</java.version>
     </properties>
-    <!--rabbitmq消息中间件依赖-->
+
     <dependencies>
+        <!--rabbitmq和Springboot集成依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+        <!--rabbitmq消息中间件依赖-->
+        <dependency>
+            <groupId>com.rabbitmq</groupId>
+            <artifactId>amqp-client</artifactId>
+            <version>5.7.0</version>
         </dependency>
 
         <dependency>
