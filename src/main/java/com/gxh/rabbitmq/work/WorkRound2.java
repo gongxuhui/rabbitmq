@@ -9,7 +9,7 @@ import java.util.concurrent.TimeoutException;
 /**
  * work model 信息接收
  */
-public class WorkReceive1 {
+public class WorkRound2 {
     private static final String QUEUE_NAME="test_work_queue";
     public void workReceive() throws IOException, TimeoutException {
         Connection connection = ConnectionUtil.getConnection();
@@ -21,9 +21,9 @@ public class WorkReceive1 {
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                 //super.handleDelivery(consumerTag, envelope, properties, body);
                 String message = new String(body,"utf-8");
-                System.out.println("[1] receive message===>"+ message);
+                System.out.println("[2] receive message===>"+ message);
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }finally {
@@ -36,7 +36,7 @@ public class WorkReceive1 {
     }
 
     public static void main(String[] args) throws IOException, TimeoutException {
-        WorkReceive1 workReceive = new WorkReceive1();
+        WorkRound2 workReceive = new WorkRound2();
         workReceive.workReceive();
     }
 

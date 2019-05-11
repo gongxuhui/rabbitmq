@@ -11,7 +11,7 @@ import java.util.concurrent.TimeoutException;
  * rabbitmq work模型 消息发送，其实也simple模型发送消息的方式一样，只是接收不同
  * 无论两个客户端处理业务的时间长短，消息都是平均分发的。这种方式叫做轮询分发（round-robin）
  */
-public class WorkSend {
+public class WorkRoundSend {
     private static final String QUEUE_NAME="test_work_queue";
     public void workSend() throws IOException, TimeoutException {
         //获取连接
@@ -30,7 +30,7 @@ public class WorkSend {
     }
 
     public static void main(String[] args) throws IOException, TimeoutException {
-        WorkSend workSend = new WorkSend();
-        workSend.workSend();
+        WorkRoundSend workRoundSend = new WorkRoundSend();
+        workRoundSend.workSend();
     }
 }
