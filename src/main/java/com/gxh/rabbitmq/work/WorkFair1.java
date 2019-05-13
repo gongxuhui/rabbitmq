@@ -9,6 +9,8 @@ import java.util.concurrent.TimeoutException;
 /**
  * work model 公平分发 信息接收
  *
+ * 在我开看，公平分发其实就是轮询分发加上流量控制实现的
+ *
  */
 public class WorkFair1 {
     private static final String QUEUE_NAME="test_work_queue";

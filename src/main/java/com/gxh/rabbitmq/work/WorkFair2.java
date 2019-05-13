@@ -24,12 +24,11 @@ public class WorkFair2 {
                 String message = new String(body,"utf-8");
                 System.out.println("[2] receive message===>"+ message);
                 try {
-                    Thread.sleep(2000);
+                    Thread.sleep(5000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }finally {
                     System.out.println("done===>"+envelope.getDeliveryTag());
-
                     channel.basicAck(envelope.getDeliveryTag(),false);
                 }
             }
