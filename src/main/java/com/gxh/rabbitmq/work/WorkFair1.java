@@ -17,7 +17,7 @@ public class WorkFair1 {
     public void workReceive() throws IOException, TimeoutException {
         Connection connection = ConnectionUtil.getConnection();
         Channel channel = connection.createChannel();
-        channel.queueDeclare(QUEUE_NAME,false,false,false,null);
+        channel.queueDeclare(QUEUE_NAME,true,false,false,null);
         channel.basicQos(1);//确保一次只分发一个
         //定义一个消费者
         DefaultConsumer defaultConsumer = new DefaultConsumer(channel){

@@ -10,6 +10,13 @@ import java.util.concurrent.TimeoutException;
 /**
  * rabbitmq work模型 消息发送，其实也simple模型发送消息的方式一样，只是接收不同
  * 能者多劳，公平分发（fair dispatch）
+ * 在我开看，公平分发其实就是轮询分发加上流量控制实现的
+ *
+ * 自动应答的作用：避免数据丢失。
+ * 设置自动应答时，无论消费者是否对消息处理成功，都会告诉队列删除消息
+ * 设置手动应答时，当消费者处理完消息时，会手动返回ask通知队列删除信息，队列才会删除信息，
+ * 如果一个消费者宕机，Rabbitmq将会把消息重新发送给其他监听队列的消费者
+ *
  *
  */
 public class WorkFairSend {
@@ -21,7 +28,7 @@ public class WorkFairSend {
         Channel channel = connection.createChannel();
         //声明队列
         //声明队列时，指定durable为true实现消息持久化
-        channel.queueDeclare(QUEUE_NAME,false,false,false,null);
+        channel.queueDeclare(QUEUE_NAME,true,false,false,null);
         /**
          * 设置参数，确保每个消费者在确认消息之前，消息队列不发送下一个消息到消费者。一次只处理一个消息
          *
