@@ -8,6 +8,7 @@ import java.util.concurrent.TimeoutException;
 
 /**
  * work model 公平分发 信息接收
+ *
  */
 public class WorkFair1 {
     private static final String QUEUE_NAME="test_work_queue";
@@ -29,11 +30,11 @@ public class WorkFair1 {
                     e.printStackTrace();
                 }finally {
                     System.out.println("done===>"+envelope.getDeliveryTag());
-
                     channel.basicAck(envelope.getDeliveryTag(),false);
                 }
             }
         };
+        //设置自动应答，设置为true时，自动应答。设置为false时，收到应答需要设置回值。
         channel.basicConsume(QUEUE_NAME,false,defaultConsumer);
 
     }

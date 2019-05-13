@@ -20,6 +20,7 @@ public class WorkFairSend {
         //创建信道
         Channel channel = connection.createChannel();
         //声明队列
+        //声明队列时，指定durable为true实现消息持久化
         channel.queueDeclare(QUEUE_NAME,false,false,false,null);
         /**
          * 设置参数，确保每个消费者在确认消息之前，消息队列不发送下一个消息到消费者。一次只处理一个消息
