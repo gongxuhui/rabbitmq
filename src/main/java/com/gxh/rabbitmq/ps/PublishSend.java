@@ -10,6 +10,12 @@ import java.util.concurrent.TimeoutException;
 /**
  * rabbitmq 发布/订阅模式 （publish/subscribe model）发送消息
  * 注意：交换机没有存储数据的能力，在rabbitmq中只有队列有存储能力
+ * rabbitmq交换机有4种类型。分别为 fanout、direct、topic、header(不常用)
+ *
+ * rabbitmq交换机的类型其实对应不同的rabbitmq的模型。
+ * publish/subscribe model<===>fanout类型
+ * routing model <===>direct类型
+ * topic model <===> topic类型
  *
  */
 public class PublishSend {
