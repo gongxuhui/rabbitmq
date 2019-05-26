@@ -17,7 +17,8 @@ public class ConnectionUtil {
     public  static Connection getConnection() throws IOException, TimeoutException {
         //定义一个连接工厂
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("127.0.0.1");
+        //factory.setHost("127.0.0.1");
+        factory.setHost("192.168.80.109");
         factory.setPort(5672);
         factory.setVirtualHost("/admin");
         factory.setUsername("admin");
