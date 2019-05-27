@@ -25,9 +25,10 @@ public class TopicSend {
         Channel channel = connection.createChannel();
         //申明一个交换机
         channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.TOPIC);
-        String routingKey = "";
+        String routingKey = "mysql.cc.error";
         String message = "巩旭辉今天到此一游";
         channel.basicPublish(EXCHANGE_NAME,routingKey,null,message.getBytes());
+        System.out.println("send message===>"+message);
         channel.close();
         connection.close();
     }
